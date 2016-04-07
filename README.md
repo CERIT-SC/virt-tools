@@ -12,6 +12,10 @@ Check for blocked (stuck, frozen) domain(s).
 
 Check domain(s) for PTY channels and replace them with UNIX type channels.
 
+### virt-check-bridge-macs.sh
+
+Check if domain(s) vnet MACs are on expected bridge ports.
+
 ***
 
 CERIT Scientific Cloud, <support@cerit-sc.cz>
