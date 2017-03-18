@@ -80,7 +80,7 @@ if [ "x${DOMAIN}" != 'x' ]; then
 	iptables_clean "${DOMAIN}"
 else
 	DOMAINS=( $(virsh -r list --name) )
-	for DOMAIN in $(iptables -L | sed -e "s/^.*\(one-[0-9]*\)-.*$/\1/;tx;d;:x" | sort -u); do
+	for DOMAIN in $(${IPTABLES} -L | sed -e "s/^.*\(one-[0-9]*\)-.*$/\1/;tx;d;:x" | sort -u); do
 		case "${DOMAINS[@]}" in *"${DOMAIN}"*) continue;; esac
 		iptables_clean "${DOMAIN}"
 	done
