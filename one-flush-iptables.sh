@@ -35,7 +35,7 @@ else
 fi
 
 NAME=$(basename ${0})
-IPTABLES='iptables -w10'
+IPTABLES='iptables -w10 -n'
 DOMAIN="${1}"
 
 #####
