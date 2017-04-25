@@ -36,7 +36,7 @@ fix_mtu() {
 		IFCFG="/etc/sysconfig/network-scripts/ifcfg-${IFACE}"
 		CONF_MTU=$(egrep -i '^MTU\s*=' "${IFCFG}" 2>/dev/null | sed -e 's/.*=//')
 		CONF_MTU=${CONF_MTU:-$MTU}
-		HAVE_MTU=$(ifconfig ${IFACE} | grep mtu | sed -e 's/.*mtu //')
+		HAVE_MTU=$(ifconfig ${IFACE} 2>/dev/null | grep mtu | sed -e 's/.*mtu //')
 
 		if [ "${CONF_MTU}" != "${HAVE_MTU}" ]; then
 			log "Fix ${IFACE} current MTU ${HAVE_MTU} to ${CONF_MTU}"
