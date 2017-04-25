@@ -2,7 +2,7 @@
 
 NAME=$(basename ${0})
 MTU=${MTU:-1500}
-IFACES=${IFACES:-$(ifconfig -a | grep mtu | cut -d: -f1)}
+IFACES=${IFACES:-$(ifconfig -a 2>/dev/null | grep mtu | cut -d: -f1)}
 
 if [ ! -f /etc/redhat-release ]; then
 	echo 'ERROR: RedHat like system required' >&2
