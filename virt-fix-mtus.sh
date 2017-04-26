@@ -32,6 +32,7 @@ fix_mtu() {
 
 	for IFACE in ${IFACES}; do
 		[ "${IFACE}" = 'lo' ] && continue
+		[[ "${IFACE}" =~ ^ib ]] && continue
 
 		IFCFG="/etc/sysconfig/network-scripts/ifcfg-${IFACE}"
 		CONF_MTU=$(egrep -i '^MTU\s*=' "${IFCFG}" 2>/dev/null | sed -e 's/.*=//')
